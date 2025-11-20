@@ -1,0 +1,28 @@
+<h2>Add Student</h2>
+
+<form onsubmit="save(event)">
+    <input id="name" placeholder="Student Name" required><br><br>
+    <input id="roll" placeholder="Roll Number" required><br><br>
+    <input id="course" placeholder="Course" required><br><br>
+
+    <button>Add Student</button>
+</form>
+
+<script>
+function save(e) {
+    e.preventDefault();
+
+    let student = {
+        name: name.value,
+        roll: roll.value,
+        course: course.value
+    };
+
+    let students = JSON.parse(localStorage.getItem("students") || "[]");
+    students.push(student);
+    localStorage.setItem("students", JSON.stringify(students));
+
+    alert("Student Added");
+    location.href = "view_students.html";
+}
+</script>
