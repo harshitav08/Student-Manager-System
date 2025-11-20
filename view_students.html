@@ -1,0 +1,23 @@
+<h2>All Students</h2>
+
+<table border="1" id="table">
+    <tr>
+        <th>Name</th>
+        <th>Roll</th>
+        <th>Course</th>
+    </tr>
+</table>
+
+<script>
+let students = JSON.parse(localStorage.getItem("students") || "[]");
+let table = document.getElementById("table");
+
+students.forEach(s => {
+    table.innerHTML += `
+        <tr>
+            <td>${s.name}</td>
+            <td>${s.roll}</td>
+            <td>${s.course}</td>
+        </tr>`;
+});
+</script>
